@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumya Shakti Yoga - Book Classes</title>
+    <link rel="manifest" href="data:application/manifest+json,{
+        'name': 'Soumya Shakti Yoga',
+        'short_name': 'SoumyaShakti',
+        'start_url': '.',
+        'display': 'standalone',
+        'background_color': '#f8f4f0',
+        'theme_color': '#d4a574',
+        'icons': [{'src': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjRDRBNzQ0Ii8+CjxwYXRoIGQ9Ik0xNDAgNjhMMTEyIDk2TDk2IDk2TDY0IDY4TDEzNiA2OEwxNDAgNjh6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=', 'sizes': '192x192', 'type': 'image/svg+xml'}]
+    }">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; background: linear-gradient(135deg, #f8f4f0 0%, #d4a574 100%); min-height: 100vh; padding: 15px; color: #2c1810; line-height: 1.6; }
+        .container { max-width: 500px; margin: 0 auto; background: white; border-radius: 25px; box-shadow: 0 15px 40px rgba(212,165,116,0.3); overflow: hidden; }
+        header { background: linear-gradient(135deg, #d4a574 0%, #b8945f 100%); color: white; padding: 40px 30px; text-align: center; position: relative; }
+        header::before { content: '🧘‍♀️'; font-size: 4em; display: block; margin-bottom: 10px; }
+        h1 { font-size: 2.2em; margin-bottom: 5px; font-weight: bold; }
+        .trainer { font-size: 1.3em; opacity: 0.95; margin-bottom: 15px; }
+        .whatsapp { background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; transition: transform 0.2s; }
+        .whatsapp:hover { transform: scale(1.05); }
+        .class-info, .booking-form, .bookings { padding: 30px; }
+        .class-card { background: linear-gradient(135deg, #fff8e7 0%, #f0e6d2 100%); border-radius: 20px; padding: 25px; margin-bottom: 20px; border: 2px solid #d4a574; box-shadow: 0 5px 15px rgba(212,165,116,0.2); }
+        .class-title { font-size: 1.4em; color: #d4a574; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .timing { font-size: 1.1em; font-weight: bold; color: #8b4513; margin-bottom: 12px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
+        .feature { background: #fff; padding: 10px; border-radius: 15px; text-align: center; font-size: 0.9em; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .highlight { background: linear-gradient(135deg, #d4a574, #b8945f); color: white !important; }
+        input, select, button { width: 100%; padding: 18px; margin-bottom: 18px; border: 2px solid #e0d4c2; border-radius: 15px; font-size: 16px; font-family: inherit; transition: all 0.3s; }
+        input:focus, select:focus { outline: none; border-color: #d4a574; box-shadow: 0 0 0 3px rgba(212,165,116,0.2); }
+        button { background: linear-gradient(135deg, #d4a574, #b8945f); color: white; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212,165,116,0.4); }
+        button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .bookings h3 { color: #d4a574; margin-bottom: 20px; text-align: center; }
+        .booking { background: linear-gradient(135deg, #e8f5e8, #d4f4d4); padding: 20px; margin-bottom: 15px; border-radius: 15px; border-left: 5px solid #d4a574; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
+        .success { background: linear-gradient(135deg, #d4edda, #c3e6c3); color: #155724; padding: 25px; text-align: center; border-radius: 20px; margin: 20px; font-size: 1.1em; animation: glow 2s infinite; }
+        @keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(212,165,116,0.3); } 50% { box-shadow: 0 0 30px rgba(212,165,116,0.6); } }
+        @media (max-width: 500px) { body { padding: 10px; } header { padding: 30px 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Soumya Shakti</h1>
+            <div class="trainer">Trainer: Aanya Gupta</div>
+            <p><strong>Starting May 1st</strong> | No Age Limit</p>
+            <a href="https://wa.me/918357873611?text=Hi!%20I%20want%20to%20join%20Soumya%20Shakti%20Yoga%20classes!%20📅" class="whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Book via WhatsApp: 8357873611
+            </a>
+        </header>
+
+        <div class="class-info">
+            <div class="class-card">
+                <h2 class="class-title"><i class="fas fa-sun"></i> Morning Classes</h2>
+                <div class="timing">
+                    🕐 <strong>Mon-Tue:</strong> 5:00 AM - 7:00 AM<br>
+                    <strong>Wed:</strong> 6:00 AM - 7:00 AM<br>
+                    <strong>Thu-Sat:</strong> 6:00 AM - 8:00 AM
+                </div>
+            </div>
+            
+            <div class="class-card">
+                <h2 class="class-title"><i class="fas fa-laptop"></i> Online Evening Classes</h2>
+                <div class="timing">🌆 <strong>5:00 PM - 7:00 PM</strong> (Daily)</div>
+            </div>
+
+            <div class="class-card">
+                <h3 style="color: #d4a574; margin-bottom: 15px;">What We Teach:</h3>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-child"></i> Asanas</div>
+                    <div class="feature"><i class="fas fa-dancing"></i> Zumba Dance</div>
+                    <div class="feature"><i class="fas fa-spa"></i> Inner Body Cleansing</div>
+                    <div class="feature highlight"><i class="fas fa-brain"></i> Meditation</div>
+                </div>
+                <p style="margin-top: 15px; font-style: italic; text-align: center; font-size: 1.1em;">
+                    <strong>For Weight Loss & Total Body Wellness</strong>
+                </p>
+                <div style="background: #fff3cd; padding: 15px; border-radius: 15px; margin-top: 15px; text-align: center;">
+                    <strong>₹200/month Beginner Course</strong>
+                </div>
+            </div>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+            <h3><i class="fas fa-calendar-check"></i> Quick Book Your Spot</h3>
+            <select id="classSelect" required>
+                <option value="">Choose Class Type</option>
+                <option value="morning">Morning Classes (In-Person)</option>
+                <option value="online">Online Evening (5-7 PM)</option>
+            </select>
+            <input type="date" id="date" required min="2024-05-01">
+            <input type="time" id="time" required>
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Reserve My Spot!</button>
+        </form>
+
+        <div id="bookingsList" class="bookings">
+            <h3><i class="fas fa-list"></i> My Upcoming Bookings</h3>
+            <div id="bookings"></div>
+        </div>
+    </div>
+
+    <script>
+        const classes = {
+            morning: { time: '05:00', name: 'Morning Classes' },
+            online: { time: '17:00', name: 'Online Evening' }
+        };
+
+        const bookings = JSON.parse(localStorage.getItem('soumyaShaktiBookings')) || [];
+
+        function renderBookings() {
+            const list = document.getElementById('bookings');
+            list.innerHTML = bookings.length ? 
+                bookings.map(b => 
+                    `<div class="booking">
+                        <strong>${b.name}</strong><br>
+                        ${b.className} | ${b.date} at ${b.time}<br>
+                        📱 ${b.phone}
+                    </div>`
+                ).join('') : 
+                '<div style="text-align:center; color:#999; padding:30px;"><i class="fas fa-heart" style="font-size:2em; color:#d4a574;"></i><br>Ready for your first booking? ✨</div>';
+        }
+
+        document.getElementById('classSelect').addEventListener('change', function() {
+            const classKey = this.value;
+            if (classKey && classes[classKey]) {
+                document.getElementById('time').value = classes[classKey].time;
+            }
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const booking = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                className: classes[formData.get('classSelect')].name,
+                date: formData.get('date'),
+                time: formData.get('time')
+            };
+            bookings.unshift(booking); // Add to top
+            localStorage.setItem('soumyaShaktiBookings', JSON.stringify(bookings));
+            renderBookings();
+            this.reset();
+            document.getElementById('classSelect').focus();
+            
+            // Auto-open WhatsApp with booking details
+            const message = `New Booking! 👋\nName: ${booking.name}\nClass: ${booking.className}\nDate: ${booking.date}\nTime: ${booking.time}\n\nReady to join Soumya Shakti! 🙏`;
+            window.open(`https://wa.me/918357873611?text=${encodeURIComponent(message)}`, '_blank');
+        });
+
+        renderBookings();
+    </script>
+</body>
+</html>
